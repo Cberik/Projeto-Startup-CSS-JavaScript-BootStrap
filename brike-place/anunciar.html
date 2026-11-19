@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anunciar desapego | Brike Place</title>
+  <meta name="description" content="Publique seu desapego no Brike Place: informe o produto, adicione fotos e seus dados de contato.">
+  <meta name="theme-color" content="#183048">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body data-page="anunciar">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="bp-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegação principal">
+      <div class="container">
+        <a class="bp-brand" href="index.html" aria-label="Brike Place — página inicial">
+          <img src="img/logo-icon.png" alt="" width="50" height="32">
+          <span class="bp-brand__text">Brike <span>Place</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <form id="navSearch" class="bp-search ms-lg-4" role="search" action="#">
+            <i data-icon="search"></i>
+            <input type="search" name="q" placeholder="Buscar desapegos..." aria-label="Buscar produtos" autocomplete="off">
+          </form>
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="como-funciona.html">Como funciona</a></li>
+            <li class="nav-item"><a class="nav-link" href="meus-anuncios.html">Meus anúncios</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="bp-pagehead">
+      <div class="container">
+        <span class="bp-eyebrow">Novo anúncio</span>
+        <h1>Anunciar desapego</h1>
+        <p>Preencha os dados abaixo para publicar seu item no Brike Place.</p>
+      </div>
+    </section>
+
+    <section class="bp-section pt-4">
+      <div class="container">
+        <div class="row g-4">
+
+          <!-- FORMULÁRIO -->
+          <div class="col-lg-8">
+            <form id="adForm" novalidate>
+
+              <section class="bp-formcard">
+                <h2 class="bp-formcard__title"><i data-icon="box"></i> Informações do produto</h2>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="item-titulo" class="form-label">Título do anúncio *</label>
+                    <input type="text" class="form-control" id="item-titulo" name="titulo" maxlength="70" required
+                           placeholder="Ex: Bicicleta aro 29, Sofá 3 lugares...">
+                    <div class="invalid-feedback">Dê um título ao seu anúncio.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="item-categoria" class="form-label">Categoria *</label>
+                    <select class="form-select" id="item-categoria" name="categoria" required>
+                      <option value="" selected disabled>Selecione uma categoria</option>
+                    </select>
+                    <div class="invalid-feedback">Escolha uma categoria.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="item-conservacao" class="form-label">Estado de conservação *</label>
+                    <select class="form-select" id="item-conservacao" name="conservacao" required>
+                      <option value="" selected disabled>Selecione o estado</option>
+                    </select>
+                    <div class="invalid-feedback">Informe o estado do produto.</div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="item-valor" class="form-label">Valor do objeto *</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">R$</span>
+                      <input type="number" class="form-control" id="item-valor" name="valor" step="0.01" min="0.01" required placeholder="0,00" inputmode="decimal">
+                      <div class="invalid-feedback">Informe um valor maior que zero.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 d-flex align-items-end">
+                    <div class="form-check pb-2">
+                      <input class="form-check-input" type="checkbox" id="item-negociavel" name="negociavel">
+                      <label class="form-check-label" for="item-negociavel">Aceito propostas / valor negociável</label>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="item-descricao" class="form-label">Descrição detalhada *</label>
+                    <textarea class="form-control" id="item-descricao" name="descricao" rows="4" maxlength="600" required
+                              placeholder="Conte mais sobre o item, tempo de uso, dimensões ou motivo do desapego..."></textarea>
+                    <div class="d-flex justify-content-between">
+                      <div class="invalid-feedback">Descreva o item para os compradores.</div>
+                      <div class="form-text ms-auto" id="descCount">0/600</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                      <span class="form-label" id="fotosLabel">Fotos do item (máx. 5) *</span>
+                      <span class="form-text" id="fotosHint">0 de 5 fotos</span>
+                    </div>
+                    <label class="bp-drop" id="dropzone" for="item-fotos">
+                      <span class="bp-drop__icon"><i data-icon="upload" data-icon-class="bp-icon--lg"></i></span>
+                      <strong>Clique para escolher ou arraste as fotos aqui</strong>
+                      <span class="small">JPG, PNG ou WEBP. A primeira foto será a capa do anúncio.</span>
+                      <input type="file" id="item-fotos" name="fotos" accept="image/*" multiple aria-labelledby="fotosLabel">
+                    </label>
+                    <div class="text-danger small mt-2 d-none" id="fotosError" role="alert">Adicione pelo menos uma foto.</div>
+                    <div class="bp-thumbs" id="thumbs"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="bp-formcard">
+                <h2 class="bp-formcard__title"><i data-icon="pin"></i> Localização e contato</h2>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="anunciante-nome" class="form-label">Nome do anunciante *</label>
+                    <input type="text" class="form-control" id="anunciante-nome" name="nome_anunciante" required placeholder="Seu nome ou apelido" autocomplete="name">
+                    <div class="invalid-feedback">Informe seu nome.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="anunciante-telefone" class="form-label">WhatsApp / telefone *</label>
+                    <input type="tel" class="form-control" id="anunciante-telefone" name="telefone" required
+                           placeholder="(00) 90000-0000" pattern="\(\d{2}\) \d{4,5}-\d{4}" inputmode="tel" autocomplete="tel">
+                    <div class="invalid-feedback">Informe um telefone com DDD, ex.: (61) 91234-5678.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="item-cidade" class="form-label">Cidade / estado *</label>
+                    <input type="text" class="form-control" id="item-cidade" name="cidade" required placeholder="Ex: Brasília - DF" autocomplete="address-level2">
+                    <div class="invalid-feedback">Informe a cidade.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="item-bairro" class="form-label">Bairro ou região *</label>
+                    <input type="text" class="form-control" id="item-bairro" name="bairro" required placeholder="Ex: Asa Sul, Taguatinga...">
+                    <div class="invalid-feedback">Informe o bairro ou região.</div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="d-flex flex-wrap justify-content-end gap-2 mt-4">
+                <a href="index.html" class="btn btn-outline-secondary btn-lg">Cancelar</a>
+                <button type="submit" class="btn btn-brand btn-lg" id="submitBtn"><i data-icon="check"></i> Publicar anúncio</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- PRÉVIA -->
+          <aside class="col-lg-4" aria-label="Pré-visualização do anúncio">
+            <div class="bp-sticky">
+              <div class="bp-previewbox">
+                <span class="bp-eyebrow mb-3">Pré-visualização</span>
+                <div id="previewCard"></div>
+                <ul class="bp-checklist">
+                  <li><i data-icon="check"></i> Use fotos nítidas e bem iluminadas.</li>
+                  <li><i data-icon="check"></i> Seja transparente sobre marcas de uso.</li>
+                  <li><i data-icon="check"></i> Responda rápido a quem entrar em contato.</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bp-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <a class="bp-brand mb-3" href="index.html" aria-label="Brike Place — página inicial">
+            <img src="img/logo-icon.png" alt="" width="50" height="32">
+            <span class="bp-brand__text">Brike <span>Place</span></span>
+          </a>
+          <p class="mb-0" style="max-width: 38ch;">Marketplace de desapegos: economia, reuso e negociação direta entre pessoas.</p>
+        </div>
+        <div class="col-6 col-lg-3 offset-lg-1">
+          <h2>Navegação</h2>
+          <ul>
+            <li><a href="index.html">Desapegos recentes</a></li>
+            <li><a href="como-funciona.html">Como funciona</a></li>
+            <li><a href="meus-anuncios.html">Meus anúncios</a></li>
+            <li><a href="anunciar.html">Anunciar desapego</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2>Negocie com segurança</h2>
+          <ul>
+            <li>Prefira locais públicos</li>
+            <li>Confira o item antes de pagar</li>
+            <li>Seja transparente no anúncio</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bp-footer__bottom">&copy; <span class="js-year">2026</span> Brike Place. Economia e desapego consciente.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/anunciar.js"></script>
+</body>
+</html>
